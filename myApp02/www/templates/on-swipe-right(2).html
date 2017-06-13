@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="myApp" ng-controller="myCtrl">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="https://cdn.bootcss.com/ionic/1.3.2/css/ionic.css" rel="stylesheet">
+		<script src="https://cdn.bootcss.com/ionic/1.3.2/js/ionic.bundle.min.js"></script>
+		<style>
+			.board{
+				width:410px;
+				height:60px;
+				border:1px solid;
+				position:relative;
+			}
+			.box{
+				width:200px;
+				height:60px;
+				line-height:60px;
+				text-align:center;
+				font-size:30px;
+				float:left;
+			}
+			.toggle{
+				width:200px;
+				height:60px;
+				line-height:60px;
+				text-align:center;
+				font-size:30px;
+				background:red;
+				position:absolute;
+				top:0;
+				left:0;
+				z-index:1;
+				transition:1s;
+			}
+			.move{
+				top:0;
+				left:210px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="board">
+			<div class="box">首页</div>
+			<div class="box">消息</div>
+			<div class="toggle" on-swipe-right="fun(1)" on-swipe-left="fun(0)" ng-class="n==1?'move':''">
+				首页
+			</div>
+		</div>
+		
+		
+		<script>
+			var app=angular.module('myApp', ['ionic']);
+			app.controller('myCtrl', function($scope,$timeout){
+				$scope.n=0;
+				$scope.fun=function(index) {
+					$scope.n=index;
+					$scope.toggle=document.querySelector('.board .toggle');
+					$timeout(function(){
+						if($scope.n==0){
+							$scope.toggle.innerHTML='首页';
+						}else{
+							$scope.toggle.innerHTML='消息';
+						}
+					},1000);
+				}
+			});
+		</script>
+	</body>
+</html>

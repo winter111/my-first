@@ -1,0 +1,174 @@
+
+<ion-view view-title="发现音乐" hide-nav-bar="true">
+	<style>
+	*{margin:0;
+	padding:0;}
+	.box{
+		width:100%;
+		height:5rem;
+	}
+	.box>img{
+		width:100%;
+		height:auto;
+	}
+	.circle{
+		width:2rem;
+		height:2rem;
+		border:1px solid red;
+		border-radius:50%;
+		text-align:center;
+	}
+	.p1{
+	font-size:3rem;
+	}
+	.table{
+		width:3rem;
+		height:1rem;
+		border:1px solid red;
+		border-radius:20px;
+		color:red;
+		text-align:center;
+		line-height:1rem;
+		margin-left:4rem;
+	}
+</style>
+	<div class="bar bar-header bar-assertive"style="width:100%;height:1.5rem">
+   	<span class="icon  ion-ios-mic-outline" style="font-size:0.8rem;line-height:1.5rem;margin-left:0.5rem;"></span>
+   	<div class="item-input-inset bar-assertive" style="margin-left:1rem;">
+   	<label class="item-input-wrapper"><i class="icon ion-ios-search palceholder-icon"></i>
+   		<input type="text" placeholder="   搜索音乐，歌词，电台    " style="width:15rem;">
+   	</label>
+   	</div>
+   	<i class="icon ion-stats-bars" style="font-size:0.8rem;line-height:1.5rem; margin-left:0.5rem;"></i>
+   </div>
+   <div class="row bar bar-subheader has-header" style="text-align:center;">
+   	<div class="col col-25">个性推荐</div>
+   	<div class="col col-30" >歌单</div>
+   	<div class="col col-25">主播电台</div>
+   	<div class="col col-25">排行榜</div>
+   </div>
+  <ion-content class="has-subheader">
+   <ion-slide-box auto-play="true" does-continue="true" slide-interval=2000 show-pager="true">
+   		<ion-slide ng-repeat="banner in sildes">
+   			<div class="box">
+   				<img src="{{banner.images}}" style="width:;height:100%;"/>
+   			</div>
+   		</ion-slide>
+   </ion-slide-box>
+   <div class="row" style="text-align:center;">
+   				<div class="col col-40"style="text-align:center;">
+   					<div class="circle">
+   					<i class="icon ion-film-marker" style="font-size:1rem;line-height:2rem;"></i>
+   					</div>
+   					<span style="margin-left:-2rem;">私人FM</span>
+   				</div>
+   				<div class="col col-40"style="text-align:center;">
+   					<div class="circle">
+   						<i class="icon ion-ios-calendar-outline" style="font-size:1rem;line-height:2rem;"></i>
+   					</div>
+   					<span style="margin-left:-2.5rem;">每日歌曲推荐</span>
+   				</div>
+   				<div class="col col-60"style="text-align:center;">
+   					<div class="circle">
+   						<i class="icon ion-stats-bars" style="font-size:1rem;line-height:2rem;"></i>
+   					</div>
+   					<span style="margin-left:-5rem;">云音乐热歌榜</span>
+   				</div>
+   			</div>
+   			<div class="list">
+   				<div class="item">
+   					<h2><span style="color:red;margin-right:0rem;">|</span>推荐歌单      <i class="icon ion-ios-arrow-right"></i></h2>
+   				</div>
+   				<div class="row"ng-repeat="listrowx in listrow">
+   					<div class="col col-33" ng-repeat="listrowy in listrowx">
+   						<img src="img/{{listrowy.imgsrc}}"  style="width:3.5rem;height:4rem;"/>
+   						<p>{{listrowy.main}}</p>
+   					</div>
+   				</div>
+   				<div class="item">
+   				<h2>独家放送      <i class="icon ion-ios-arrow-right"></i></h2>
+   				</div>
+   				<div class="row">
+   					<div class="col col-50">
+   						<img src="img/18870918067627666.jpg" style="width:6rem;height:4rem;"/>
+   						<p>独家专访 尚雯婕：惊艳！素人歌手超乎想象</p>
+   					</div>
+   					<div class="col col-50">
+   						<img src="img/18923694625686839.jpg" style="width:5rem;height:4rem;"/>
+   						<p>逃跑计划发布会短视频，演唱会要来啦</p>
+   					</div>
+   				</div>
+   				<div class="row">
+   					<div class="col">
+   						<img src="img/beijing8.jpg" style="width:10rem;height:4rem;"/>
+   						<p>牛奶咖啡独家录制《咖喱咖喱》视频，看饿了！</p>
+   					</div>
+   				</div>
+   				<div class="item">
+   					<h2>最新音乐  <i class="icon ion-ios-arrow-right"></i></h2>
+   				</div>
+   				<div class="row" ng-repeat="homemusicx in homemusicss">
+   					<div class="col col-33" ng-repeat="homemusicy in homemusicx">
+   						<img src="img/{{homemusicy.imgsrc}}" style="width:3.5rem;height:4rem;"/>
+   						<h4>{{homemusicy.title}}</h4>
+   						<p>{{homemusicy.main}}</p>
+   					</div>
+   				</div>
+   				<div class="item">
+   					<h2>推荐MV<i class="icon ion-ios-arrow-right"></i></h2>
+   				</div>
+   				<div class="row" ng-repeat="homemvx in homemovess">
+   					<div class="col col-50" ng-repeat="homemvy in homemvx">
+   						<img src="img/{{homemvy.imgsrc}}" style="width:5.5rem;height:4rem;"/>
+   						<h4>{{homemvy.title}}</h4>
+   						<p>{{homemvy.main}}</p>
+   					</div>
+   				</div>
+   				<div class="item">
+   					<h2>精选专栏<i class="icon ion-ios-arrow-right"></i></h2>
+   				</div>
+   				<div class="row item">
+   					<div class="col col-60">
+   						<p style="font-size:0.5rem;">母亲节，选一首最爱的歌献给母亲</p>
+   						<p style="margin-top:1rem;">阅读  924</p>
+   					</div>
+   					<div class="col col-80">
+   						<img src="img/18737877162471778.jpg" style="width:4rem;height:3rem;"/>
+   					</div>
+   				</div>
+   				<div class="row item">
+   					<div class="col col-60">
+   						<p style="font-size:0.5rem;">母亲节，选一首最爱的歌献给母亲</p>
+   						<p style="margin-top:1.2rem;">阅读  924</p>
+   					</div>
+   					<div class="col col-80">
+   						<img src="img/18737877162471778.jpg" style="width:4rem;height:3rem;"/>
+   					</div>
+   				</div>
+   				<div class="row item">
+   					<div class="col col-60">
+   						<p style="font-size:0.5rem;">母亲节，选一首最爱的歌献给母亲</p>
+   						<p style="margin-top:1.2rem;">阅读  924</p>
+   					</div>
+   					<div class="col col-80">
+   						<img src="img/18737877162471778.jpg" style="width:4rem;height:3rem;"/>
+   					</div>
+   				</div>
+   				<div class="item">
+   					<h2>主播电台         <i class="icon ion-ios-arrow-right"></i></h2>
+   				</div>
+   				<div class="row" ng-repeat="homeradiox in homeradio">
+   					<div class="col col-33" ng-repeat="homeradioy in homeradiox">
+   						<img src="img/{{homeradioy.imgsrc}}"  style="width:3.5rem;height:4rem;"/>
+   						<p>{{homeradioy.main}}</p>
+   					</div>
+   				</div>
+   			</div>
+   			<div class="list" style="text-align:center;">
+   				<p style="font-size:12px;">现在可以根据个人喜好，自由调整首页栏目顺序了~</p>
+   				<div class="table">
+   					调整栏目顺序
+   				</div>
+   			</div>
+  </ion-content>
+</ion-view>
